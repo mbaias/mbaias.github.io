@@ -75,11 +75,6 @@ $(document).ready(function() {
  
   $('#stop').click(function() {
     clearInterval(stop);
-    console.log('sdfs')
   })
 });
 
-
-var element = document.getElementById('wrap');
-
-console.log(element)

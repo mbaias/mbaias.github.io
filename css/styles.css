@@ -30,7 +30,7 @@
 
 #wrap{
   display:flex;
-  min-height:700px;
+  min-height:500px;
   align-items:flex-start;
 }
 
