@@ -41,10 +41,11 @@ var textArea = document.getElementById('valentines-card')
 
 var wordsLeft = document.getElementById('words-left')
 
-wordsLeft.innerText = textArea.attributes.maxlength.value;
+wordsLeft.innerText = "You have " + textArea.attributes.maxlength.value + " letters left";
 
 textArea.addEventListener('keyup', wordLeft)
 
 function wordLeft() {
-  wordsLeft.innerText = textArea.attributes.maxlength.value - textArea.value.length
+  var left  = textArea.attributes.maxlength.value - textArea.value.length
+  wordsLeft.innerText = "You have " + left + " letters left";
 }

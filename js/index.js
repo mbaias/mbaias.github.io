@@ -15,22 +15,31 @@ $(document).ready(function(){
 
   // Reference to firebase database
   var cardsRef = firebase.database().ref('Cards/');
-  
-  var carousel = $('.owl-carousel')
+  var carousel = $('#wrap')
+  var carousel1 = $('#wrap1')
+  var carousel2 = $('#wrap2')
   
   // Dynamically adding data from database to Owl Carousel
-
+  var i = 0
   cardsRef.on('child_added', function(snapshot) {
-    $(carousel).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item">' + snapshot.val().card  + '</div>')]).trigger('refresh.owl.carousel');
+    if (i % 2 === 0){
+      $(carousel).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
+      console.log(snapshot.val().card);
+    } else if (i % 3 === 0) {
+      console.log(snapshot.val().card);
+      $(carousel1).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
+    } else {
+      console.log(snapshot.val().card);
+      $(carousel2).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
+    }
+    i++
   })
 
   // Initialize Carousel
   $(carousel).owlCarousel({
-    items:4,
-    loop:true,
-    margin:10,
-    autoplaySpeed:1000,
+    loop: true,
     autoplay:true,
+    autoplaySpeed:2000,
     autoWidth:true,
     responsive:{
       0:{
@@ -42,7 +51,41 @@ $(document).ready(function(){
       1000:{
           items:5
       }
-    }
+    },
+  })
+  $(carousel1).owlCarousel({
+    loop: true,
+    autoplay:true,
+    autoplaySpeed:2000,
+    autoWidth:true,
+    responsive:{
+      0:{
+          items:1
+      },
+      600:{
+          items:3
+      },
+      1000:{
+          items:5
+      }
+    },
+  })
+  $(carousel2).owlCarousel({
+    loop: true,
+    autoplay:true,
+    autoplaySpeed:3000,
+    autoWidth:true,
+    responsive:{
+      0:{
+          items:1
+      },
+      600:{
+          items:3
+      },
+      1000:{
+          items:5
+      }
+    },
   })
 
 })

@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/input.css">
 </head>
 <body>
 
-  <form id="cardsForm" action="">
-    <label for="valentines-card">Valentine</label>
-    <input name="valentines-card" maxlength="255" id="valentines-card">
-    <span id="words-left"></span>
-    <button type="submit" value="Submit">Submit</button>
-  </form>
+  <div>
+    <img class="logo" src="images/OK(230x150).png" alt="">
+    
+    <form id="cardsForm" action="">
+      <textarea name="valentines-card" maxlength="255" id="valentines-card" placeholder="Введите текст валентинки...."></textarea>
+      <span id="words-left"></span>
+      <button class="button button--blue" type="submit" value="Submit">Отправить отзыв</button>
+      <p><span>или</span></p>
+      <a href="https://meetapp.kg/allfeedbacks.html" class="button button--white">Показать все отзывы</a>
+    </form>
+  </div>
   
   <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
   <script src="./js/input.js"></script>
