@@ -24,12 +24,9 @@ $(document).ready(function(){
   cardsRef.on('child_added', function(snapshot) {
     if (i % 2 === 0){
       $(carousel).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
-      console.log(snapshot.val().card);
     } else if (i % 3 === 0) {
-      console.log(snapshot.val().card);
       $(carousel1).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
     } else {
-      console.log(snapshot.val().card);
       $(carousel2).owlCarousel().trigger('add.owl.carousel', [jQuery('<div class="owl-item"><span>' + snapshot.val().card  + '</span></div>')]).trigger('refresh.owl.carousel');
     }
     i++
